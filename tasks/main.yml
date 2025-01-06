@@ -79,7 +79,7 @@
   notify:
     - restart ssh service when key changed if set_hostkeys_restart_service set to true
     - delete known_hosts entry on Ansible controller
-    - add new ssh key to known_hostser
+    - add new ssh key to known_hosts
   no_log: True
 
 - name: Set RSA public key
