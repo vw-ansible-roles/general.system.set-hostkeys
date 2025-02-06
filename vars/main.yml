@@ -1,3 +1,4 @@
 ---
 # vars file for set-hostkeys
 set_hostkeys_dest_dir: '/etc/ssh'
+set_hostkeys_dsa_enabled: false

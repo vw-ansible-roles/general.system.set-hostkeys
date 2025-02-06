@@ -9,7 +9,7 @@
   copy:
     dest: "{{ set_hostkeys_dest_dir }}/ssh_host_dsa_key"
     content: "{{ set_hostkeys_content.hostkeys.dsa.private }}"
-  when: set_hostkeys_content.hostkeys.dsa.private|length > 0
+  when: set_hostkeys_content.hostkeys.dsa.private|length > 0 and set_hostkeys_dsa_enabled | bool
   notify:
     - restart ssh service when key changed if set_hostkeys_restart_service set to true
     - delete known_hosts entry on Ansible controller
@@ -20,7 +20,7 @@
   copy:
     dest: "{{ set_hostkeys_dest_dir }}/ssh_host_dsa_key.pub"
     content: "{{ set_hostkeys_content.hostkeys.dsa.public }}"
-  when: set_hostkeys_content.hostkeys.dsa.public|length > 0
+  when: set_hostkeys_content.hostkeys.dsa.public|length > 0 and set_hostkeys_dsa_enabled | bool
   notify:
     - restart ssh service when key changed if set_hostkeys_restart_service set to true
     - delete known_hosts entry on Ansible controller
