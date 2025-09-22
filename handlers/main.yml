@@ -15,3 +15,7 @@
   ansible.builtin.command:
     cmd: ssh -o StrictHostKeyChecking=accept-new -o BatchMode=yes {{ ansible_user }}@{{ ansible_host }} exit
   delegate_to: localhost
+
+- name: set hostkeys as changed
+  ansible.builtin.set_fact:
+    set_hostkeys_changed: true
